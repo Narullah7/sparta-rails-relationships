@@ -1,19 +1,28 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>First name:</strong>
-  <%= @user.first_name %>
-</p>
+<strong>User details</strong><br>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @user.last_name %>
-</p>
+<table>
+  <tr>
+    <th><%= @user.first_name  %></th>
+    <th><%= @user.last_name %></th>
+    <th><%= @user.age %></th>
+    <th colspan="3"></th>
+  </tr>
+</table>
 
+<br>
+
+<strong>Order list for user</strong>
+
+<% @orders.each do |orders| %>
 <p>
-  <strong>Age:</strong>
-  <%= @user.age %>
+  <%= "User-ID: #{orders.user_id}" %>
+  <%= "Total: #{orders.total}" %>
 </p>
+<% end %>
+
+
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
